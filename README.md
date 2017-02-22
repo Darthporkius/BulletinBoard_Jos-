@@ -1,4 +1,4 @@
-# BulletinBoard_Jos-
+# BulletinBoard_Jose
 Exercise with database and sequelize
 
 Bulletin Board Application
