@@ -1,0 +1,24 @@
+{
+  "name": "bulletinboard_jose",
+  "version": "1.0.0",
+  "description": "Exercise with database and sequelize",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darthporkius/BulletinBoard_Jose.git"
+  },
+  "author": "José Luis Rasmussen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darthporkius/BulletinBoard_Jose/issues"
+  },
+  "homepage": "https://github.com/Darthporkius/BulletinBoard_Jose#readme",
+  "dependencies": {
+    "pg": "^6.1.2",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.2"
+  }
+}
