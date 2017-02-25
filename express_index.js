@@ -1,5 +1,5 @@
 var http = require('http');
-var module2 = require('./module2');
+var module2 = require('./express_tutorial/module2');
 
 function onRequest(request, response) {
     response.writeHead(200, { 'Content-Type': 'text/plain' });
