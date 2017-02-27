@@ -8,8 +8,7 @@ const express = require('express'),
 //middleware and routing functions. Every Express application 
 //has a built-in app router.
 const router = express.Router();
-//This exports router so it can be used in index.js
-module.exports = router;
+
 
 //This is the Connection to the database.
 const sequelize = new Sequelize(
@@ -38,3 +37,38 @@ router.get('/:id', (request, response) => {
         response.render('notices/show', { notice: notice });
     });
 });
+
+//Delete a notice and redirect to the bulletin board
+router.delete('/:id', (request, response) => {
+    notice.destroy({
+        where: {
+            id: request.params.id
+        }
+    }).then(() => {
+        response.redirect('/board');
+    });
+});
+
+//edit a notice 
+router.get('/:id/edit', (req, res) => {
+    notice.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then((notice) => {
+        res.render('notices/edit', { notice: notice });
+    });
+});
+
+router.put('/:id', (request, response) => {
+    notice.update(request.body, {
+        where: {
+            id: request.params.id,
+        }
+    }).then(() => {
+        response.redirect('/notices/' + request.params.id);
+    });
+});
+
+//This exports router so it can be used in index.js
+module.exports = router;
