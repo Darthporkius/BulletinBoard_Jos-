@@ -50,12 +50,17 @@ app.get('/board', (request, response) => {
     });
 });
 
-
-
-
-
-
-
+//This will create a new entery into the notice table.
+//notice.create sets the new info in the table.
+//request.body will take all the input of the user in the new post
+//form. It uses de name of the input fields.
+//Finally it will redirect to the bulletin board page (/board url) after
+//teh new entery has been created. 
+app.post('/new-notice', (request, response) => {
+    notice.create(request.body).then(() => {
+        response.redirect('/board');
+    });
+});
 
 
 sequelize.sync().then(() => {
