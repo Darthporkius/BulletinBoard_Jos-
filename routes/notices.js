@@ -8,6 +8,7 @@ const express = require('express'),
 //middleware and routing functions. Every Express application 
 //has a built-in app router.
 const router = express.Router();
+//This exports router so it can be used in index.js
 module.exports = router;
 
 //This is the Connection to the database.
@@ -27,4 +28,13 @@ var notice = sequelize.define('notice', {
 //new post form.
 router.get('/', (request, response) => {
     response.render('notices/index');
+});
+
+//example of the expected request (http://localhost:8000/notices/2)
+//This will find all the data within a row of the notice table
+//by the id. Finally the data will be renderd with the show.pug file.
+router.get('/:id', (request, response) => {
+    notice.findById(request.params.id).then((notice) => {
+        response.render('notices/show', { notice: notice });
+    });
 });

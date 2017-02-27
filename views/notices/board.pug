@@ -4,6 +4,9 @@ block content
   .container
     h1 Bulletin board
     hr
+    //- For evey notice it will render the same.
+    //- a(href="/notices/" + notice.id) will make a url request
+    //- that points to the id of the notice in the notice table.
     each notice in notices
       .card.card-block
         .row
