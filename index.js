@@ -22,9 +22,6 @@ var notice = sequelize.define('notice', {
     body: Sequelize.TEXT
 });
 
-//Middleware that prints HTTP requests
-app.use(morgan('dev'));
-
 app.use(methodOverride((req, res) => {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
         var method = req.body._method;
@@ -33,11 +30,22 @@ app.use(methodOverride((req, res) => {
     }
 }));
 
+//Middleware that prints HTTP requests
+app.use(morgan('dev'));
+
 //setup view engine to pug.
 app.set('view engine', 'pug');
 
 //We need bodyParser to parse user input text into a JS string.
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(methodOverride((req, res) => {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        var method = req.body._method;
+        delete req.body._method;
+        return method;
+    }
+}));
 
 //Here we say that if a /notices url request is made we want the
 //js file defined in noticesRouter (notices.js) to handel it.
