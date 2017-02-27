@@ -1,0 +1,22 @@
+//- html layout
+//- This is the basic layout of the webpage.
+//- More elements will be added and shown by writing extentions 
+//- to the application.pug file.
+html
+  head
+    //- this is the title that is visible in the browser tab.
+    title Bulletin board
+    //- importing bootstrap
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous")
+  body
+    
+    nav(class="navbar navbar-light bg-faded")
+      //- go to index.js and find ('/') get request
+      a(class="navbar-brand" href="/") Add notice
+      //- go to index.js and find ('/board') get request
+      a(class="navbar-brand" style="float:right" href="/board") Bulletin board
+
+    //- This is the content block.
+    //- The content of each written pug extention will be renderd
+    //- within the content block.
+    block content

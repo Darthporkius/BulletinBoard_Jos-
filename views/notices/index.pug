@@ -1,0 +1,25 @@
+extends ../application.pug
+
+block content
+  .container
+    //- This is the tilte of the homepage.
+    h1 New post
+    hr
+
+    //- This is the form where users can input a new 
+    //- notice to the database. 
+    form(action="/new-notice/" method="POST")
+      //- This is where the user imputs it's name. The input name points to
+      //- the clomn in the database.
+      div(class="form-group")
+        lable(for="notice-title") Title
+        input(name="title" type="text" class="form-control" id="notice-title")
+      //- This is where the user inputs the notice. The textarea name point to
+      //- the column in the database.
+      div(class="form-group")
+        lable(for="notice-body") Body
+        textarea(name="body" class="form-control" rows=5 id="notice-body")
+      //- This is the submit button.
+      div(class="form-group text-xs-right")
+        button(type="submit" class="btn btn-lg btn-success") Submit 
+
