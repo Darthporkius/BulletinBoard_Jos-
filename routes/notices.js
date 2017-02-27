@@ -8,7 +8,8 @@ const express = require('express'),
 //middleware and routing functions. Every Express application 
 //has a built-in app router.
 const router = express.Router();
-
+//This exports router so it can be used in index.js
+module.exports = router;
 
 //This is the Connection to the database.
 const sequelize = new Sequelize(
@@ -69,6 +70,3 @@ router.put('/:id', (request, response) => {
         response.redirect('/notices/' + request.params.id);
     });
 });
-
-//This exports router so it can be used in index.js
-module.exports = router;
